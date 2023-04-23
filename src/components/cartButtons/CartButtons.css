@@ -1,0 +1,29 @@
+.cart-btns{
+    font-size: 1.4rem;
+}
+.cart-btns a{
+    margin-left: 15px;
+    position: relative;
+}
+.cart-btns a:hover{
+    color: var(--link-color-hover);
+}
+.cart-btns a:hover span{
+    background-color: var(--link-color-hover);
+}
+.item-no{
+    background-color: var(--text-color-main);
+    color: #fff;
+    padding: 6px;
+    height: 18px;
+    width: 18px;
+    font-size: 0.75rem;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    right: -8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
