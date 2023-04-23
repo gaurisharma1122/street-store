@@ -6,11 +6,13 @@ import Shop from "./pages/shop/Shop";
 import Products from "./pages/products/Products";
 import Wishlist from "./pages/wishlist/Wishlist";
 import Cart from "./pages/cart/Cart";
+import NavSidebar from "./components/navbar/NavSidebar";
 
 function App() {
   return (
     <div>
       <Navbar />
+      <NavSidebar/>
       <div className="page">
         <Routes>
           <Route exact path="/" element={<Home />} />

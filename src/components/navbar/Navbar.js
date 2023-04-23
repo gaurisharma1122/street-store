@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FaBars } from 'react-icons/fa';
 import CartButtons from '../cartButtons/CartButtons';
+import { navLinks } from '../../data';
+import { useProductContext } from '../../context/product_context';
 
 const Navbar = () => {
+    const { openNavSidebar }= useProductContext();
     return (
         <nav>
             <div className="nav-center">
@@ -14,13 +17,14 @@ const Navbar = () => {
                 </h1>
                 <div className="nav-toggle">
                     <AiOutlineSearch className='search-btn'/>
-                    <FaBars className='toggle-btn'/>
+                    <FaBars className='toggle-btn' onClick={openNavSidebar}/>
                 </div>
                 <div className="nav-links">
-                    <Link to="/">Home</Link>
-                    <Link to="/about">About</Link>
-                    <Link to="/shop">Shop</Link>
-                    <Link to="/products">Products</Link>
+                    {
+                        navLinks.map((link)=>{
+                            return <Link key={link.id} to={link.link}>{link.name}</Link>
+                        })
+                    }
                 </div>
                 <div className='nav-btns'>
                     <AiOutlineSearch className='search-btn'/>
