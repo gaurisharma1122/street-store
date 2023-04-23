@@ -5,7 +5,7 @@ import { CLOSE_NAV_SIDEBAR, OPEN_NAV_SIDEBAR } from "../actions";
 const ProductContext= createContext();
 
 const initialState= {
-    showNavSidebar: true,
+    showNavSidebar: false,
 };
 
 const ProductProvider= ({ children })=>{
