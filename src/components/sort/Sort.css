@@ -1,0 +1,40 @@
+.sort{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: var(--text-color-main);
+}
+.sort-btns{
+    display: flex;
+}
+.sort-btns span{
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 5px 5px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+.sort-by label{
+    font-size: 1.1rem;
+    margin-right: 10px;
+}
+.sort-by select {
+    padding: 5px 7px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+@media screen and (max-width:600px) {
+    .sort-btns span{
+        font-size: 1.1rem;
+    }
+    .sort-by label{
+        font-size: 1rem;
+    }
+    .sort-by select{
+        font-size: 0.9rem;
+    }
+}
