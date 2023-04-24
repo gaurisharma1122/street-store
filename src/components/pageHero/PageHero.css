@@ -1,0 +1,24 @@
+.page-hero{
+    background-color: var(--link-color-hover);
+    height: 5rem;
+    display: flex;
+    align-items: center;
+}
+.page-hero h1{
+    color: #fff;
+    font-size: 2rem;
+    margin-left: 2rem;
+}
+.page-hero h1 a:hover{
+    color: var(--text-color-main);
+}
+@media screen and (max-width: 850px) {
+    .page-hero h1{
+        font-size: 1.6rem;
+    }
+}
+@media screen and (max-width: 600px) {
+    .page-hero h1{
+        font-size: 1.4rem;
+    }
+}

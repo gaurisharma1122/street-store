@@ -1,8 +1,10 @@
 import React from 'react'
+import PageHero from '../../components/pageHero/PageHero'
 
 const About = () => {
   return (
-    <div>
+    <div className='container'>
+      <PageHero pageTitle='About'/>
       About
     </div>
   )

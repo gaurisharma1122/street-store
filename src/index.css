@@ -7,8 +7,11 @@
 }
 :root{
   --text-color-main: #222;
+  --text-color-1: #353535;
   --link-color-hover: #b59677;
+  --link-color-hover-light: #ceab89;
   --gray-light: #979797;
+  --gray-light-2: #faf9f9;
 }
 ul{
   list-style: none;
@@ -23,6 +26,16 @@ a{
 .container{
   width: 80%;
   margin: 0 auto;
+}
+.loading, .error{
+  height: calc(100vh - 5rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading h1, .error h1{
+  font-size: 3rem;
+  color: var(--text-color-main);
 }
 @media screen and (max-width:850px) {
   .container{

@@ -1,0 +1,12 @@
+.products-wrapper{
+    display: grid;
+    grid-template-columns: 20% 75%;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+@media screen and (max-width:850px) {
+    .products-wrapper{
+        grid-template-columns: 1fr;
+    }
+}

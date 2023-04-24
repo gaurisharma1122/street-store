@@ -1,0 +1,107 @@
+.product-grid{
+    height: 100%;
+}
+.product-grid-img{
+    height: 280px;
+    position: relative;
+}
+.product-grid img{
+    width: 100%;
+    height: 100%;
+}
+.product-grid-btns{
+    padding: 0 5px 5px 5px;
+    display: none!important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 5px;
+}
+.product-grid-btns button{
+    padding: 10px 10px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    background-color: var(--link-color-hover);
+    color: #fff;
+    font-weight: 600;
+}
+.product-grid-btns button:hover, .product-list-btn button:hover{
+    background-color: var(--link-color-hover-light);
+}
+.product-grid:hover .product-grid-btns{
+    display: grid!important;
+}
+.product-grid-info{
+    padding: 20px 10px;
+    background-color: var(--gray-light-2);
+}
+.product-grid-info h3, .product-list-info h3{
+    color: var(--text-color-main);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+.product-grid-info h3:hover, .product-list-info h3:hover{
+    color: var(--link-color-hover);
+}
+.product-grid-info p, .product-list-info p{
+    font-size: 1rem;
+    color: var(--text-color-1);
+    font-weight: 500;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+.product-grid-info h4, .product-list-info h4{
+    font-size: 1.1rem;
+    color: var(--text-color-main);
+}
+.product-list{
+    display: flex;
+    align-items: center;
+}
+.product-list img{
+    width: 350px;
+    height: 250px;
+    margin-right: 2rem;
+}
+.product-list-btn button{
+    margin-top: 20px;
+    margin-right: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--link-color-hover);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+}
+@media screen and (max-width:600px){
+    .product-grid-img{
+        height: 250px;
+    }
+}
+@media screen and (max-width:600px) {
+    .product-grid-img{
+        height: 230px;
+    }
+    .product-list{
+        flex-direction: column;
+        align-items: start;
+    }
+    .product-list img{
+        width: 300px;
+        height: 200px;
+        margin-right: 0;
+    }
+    .product-list-info{
+        margin-top: 20px;
+    }
+}
