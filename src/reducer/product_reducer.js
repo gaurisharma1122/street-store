@@ -1,4 +1,4 @@
-import { CLOSE_NAV_SIDEBAR, GET_CATEGORIES_BEGIN, GET_CATEGORIES_ERROR, GET_CATEGORIES_SUCCESS, GET_PRODUCTS_BEGIN, GET_PRODUCTS_ERROR, GET_PRODUCTS_SUCCESS, OPEN_NAV_SIDEBAR } from "../actions";
+import { CLOSE_NAV_SIDEBAR, GET_CATEGORIES_BEGIN, GET_CATEGORIES_ERROR, GET_CATEGORIES_SUCCESS, GET_PRODUCTS_BEGIN, GET_PRODUCTS_ERROR, GET_PRODUCTS_SUCCESS, GET_SINGLE_PRODUCT_BEGIN, GET_SINGLE_PRODUCT_ERROR, GET_SINGLE_PRODUCT_SUCCESS, OPEN_NAV_SIDEBAR } from "../actions";
 
 export const product_reducer= (state, action)=>{
     switch(action.type){
@@ -33,6 +33,18 @@ export const product_reducer= (state, action)=>{
         case GET_CATEGORIES_ERROR:
             {
                 return { ...state, categories_error: true };
+            }; break;
+        case GET_SINGLE_PRODUCT_BEGIN:
+            {
+                return { ...state, single_product_loading: true, single_product_error: false };
+            }; break;
+        case GET_SINGLE_PRODUCT_SUCCESS:
+            {
+                return { ...state, single_product_loading: false, single_product: action.payload };
+            }; break;
+        case GET_SINGLE_PRODUCT_ERROR:
+            {
+                return { ...state, single_product_error: true };
             }; break;
     }
 };

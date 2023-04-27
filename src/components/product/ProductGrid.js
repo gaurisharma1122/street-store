@@ -18,7 +18,7 @@ const ProductGrid = ({ id, title, price, category, thumbnail, rating, stock }) =
                 </div>
             </div>
             <div className="product-grid-info">
-                <h3><Link to="/">{title}</Link></h3>
+                <h3><Link to={`/products/${id}`}>{title}</Link></h3>
                 <p>Category: {category}</p>
                 <h4>$ {price}</h4>
 

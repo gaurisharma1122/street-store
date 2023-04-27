@@ -7,6 +7,7 @@ import Products from "./pages/products/Products";
 import Wishlist from "./pages/wishlist/Wishlist";
 import Cart from "./pages/cart/Cart";
 import NavSidebar from "./components/navbar/NavSidebar";
+import SingleProduct from "./pages/singleProduct/SingleProduct";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/products" element={<Products />} />
           <Route exact path="/wishlist" element={<Wishlist />} />
           <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/products/:id" element={<SingleProduct/>}/>
         </Routes>
       </div>
     </div>

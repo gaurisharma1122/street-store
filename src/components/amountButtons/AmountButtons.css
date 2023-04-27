@@ -1,0 +1,20 @@
+.amount-btns{
+    display: flex;
+    align-items: center;
+}
+.amt-btn{
+    font-size: 2.2rem;
+    padding: 0;
+    color: var(--link-color-hover);
+    cursor: pointer;
+}
+.amt-btn:hover{
+    color: var(--link-color-hover-light);
+}
+.amount-btns p{
+    font-size: 1.4rem;
+    padding: 0 15px;
+    margin-bottom: 0;
+    font-weight: 600;
+    color: var(--link-color-hover);
+}

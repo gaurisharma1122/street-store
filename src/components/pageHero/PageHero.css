@@ -8,6 +8,7 @@
     color: #fff;
     font-size: 2rem;
     margin-left: 2rem;
+    text-transform: capitalize;
 }
 .page-hero h1 a:hover{
     color: var(--text-color-main);
