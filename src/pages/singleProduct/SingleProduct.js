@@ -6,15 +6,15 @@ import Loading from '../../components/Loading';
 import Error from '../../components/Error';
 import PageHero from '../../components/pageHero/PageHero';
 import AmountButtons from '../../components/amountButtons/AmountButtons';
-import { AiOutlineHeart } from 'react-icons/ai'
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
+import { useCartContext } from '../../context/cart_context';
 
 const SingleProduct = () => {
     const { id }= useParams();
     const { single_product, single_product_loading, single_product_error, fetchSingleProduct }= useProductContext();
+    const { wishlist, addToWishlist, removeFromWishlist }= useCartContext();
     const [amount, setAmount]= useState(1);
-   // const [mainImg, setMainImg]= useState(single_product.thumbnail)
     const [mainImgIndex, setMainImgIndex]= useState(0);
-    const [imgArray, setImgArray]= useState([]);
    
 
     useEffect(()=>{
@@ -28,7 +28,6 @@ const SingleProduct = () => {
         return <Error/>
     }
     else{
-      
         return (
             <div className='container'>
                 <PageHero pageTitle="Products" product={single_product.title}/>
@@ -58,7 +57,12 @@ const SingleProduct = () => {
                                     <button>Add to cart</button>:
                                     <button>out of stock</button>
                                 }
-                                <button><AiOutlineHeart/></button>
+                                
+                                {
+                                    wishlist.some((item)=> item.id === single_product.id)?
+                                    <button onClick={()=> removeFromWishlist(single_product.id)}><AiFillHeart/></button>:
+                                    <button onClick={()=> addToWishlist(single_product)}><AiOutlineHeart/></button>
+                                }
                             </div>
                     </div>
                 </div>

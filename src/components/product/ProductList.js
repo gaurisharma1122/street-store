@@ -1,9 +1,12 @@
 import React from 'react'
 import "./Product.css"
-import { AiOutlineHeart } from 'react-icons/ai'
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
+import { useCartContext } from '../../context/cart_context'
 
-const ProductList = ({ id, title, price, category, thumbnail, rating, stock }) => {
+const ProductList = ({ product }) => {
+    const {id, title, price, category, thumbnail, rating, stock}= product;
+    const { wishlist, addToWishlist, removefromWishlist }= useCartContext();
     return (
         <div className='product-list'>
             <img src={thumbnail} alt={title} />
@@ -17,7 +20,12 @@ const ProductList = ({ id, title, price, category, thumbnail, rating, stock }) =
                             <button>Add to cart</button> :
                             <button>Out of stock</button>
                     }
-                    <button><AiOutlineHeart /></button>
+                    {
+                        wishlist.some((item)=> item.id===id)?
+                        <button onClick={()=>removefromWishlist(id)}><AiFillHeart /></button>:
+                        <button onClick={()=>addToWishlist(product)}><AiOutlineHeart /></button>
+                    }
+
                 </div>
             </div>
         </div>

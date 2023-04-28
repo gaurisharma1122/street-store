@@ -9,7 +9,7 @@ const ListView = () => {
     <div className='list-view'>
       {
         products.map((product)=>{
-            return <ProductList key={product.id} { ...product }/>
+            return <ProductList key={product.id} product={product}/>
         })
       }
     </div>
