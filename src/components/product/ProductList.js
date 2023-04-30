@@ -21,7 +21,7 @@ const ProductList = ({ product }) => {
                             <button>Out of stock</button>
                     }
                     {
-                        wishlist.some((item)=> item.id===id)?
+                        wishlist?.some((item)=> item.id===id)?
                         <button onClick={()=>removefromWishlist(id)}><AiFillHeart /></button>:
                         <button onClick={()=>addToWishlist(product)}><AiOutlineHeart /></button>
                     }

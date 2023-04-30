@@ -16,10 +16,12 @@
 .wishlist-item-info h2{
     font-size: 1.6rem;
     margin-bottom: 15px;
+    text-transform: capitalize;
 }
 .wishlist-item-info p{
     font-size: 1.1rem;
     margin-bottom: 10px;
+    text-transform: capitalize;
 }
 .wishlist-item-info-container{
     width: 70%;

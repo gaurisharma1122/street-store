@@ -7,12 +7,11 @@ import { useCartContext } from '../../context/cart_context'
 
 const CartButtons = () => {
     const { closeNavSidebar }= useProductContext();
-    const { wishlist }= useCartContext();
+    const { wishlist, total_cart_items }= useCartContext();
     return (
         <div className='cart-btns'>
-            
-            <Link to="/wishlist" onClick={closeNavSidebar}><AiOutlineHeart /> <span className="item-no">{wishlist.length}</span></Link>
-            <Link to="/cart" onClick={closeNavSidebar}><AiOutlineShoppingCart /> <span className="item-no">{0}</span></Link>
+            <Link to="/wishlist" onClick={closeNavSidebar}><AiOutlineHeart /> <span className="item-no">{wishlist ? wishlist.length : 0}</span></Link>
+            <Link to="/cart" onClick={closeNavSidebar}><AiOutlineShoppingCart /> <span className="item-no">{total_cart_items}</span></Link>
         </div>
     )
 }

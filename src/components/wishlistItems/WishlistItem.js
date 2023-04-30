@@ -4,7 +4,12 @@ import { Link } from 'react-router-dom'
 import { useCartContext } from '../../context/cart_context'
 
 const WishlistItem = ({ product }) => {
-    const { removeFromWishlist }= useCartContext();
+    const { removeFromWishlist, addToCart }= useCartContext();
+
+    const handleWishlist= ()=>{
+        addToCart(product.id, product, 1);
+        removeFromWishlist(product.id);
+    }
     return (
         <div className='wishlist-item'>
             <img src={product.thumbnail} alt={product.title} />
@@ -17,7 +22,7 @@ const WishlistItem = ({ product }) => {
                     <h2>$ {product.price}</h2>
                 </div>
                 <div className="wishlist-item-button">
-                    <button>Move to cart</button>
+                    <button onClick={handleWishlist}>Move to cart</button>
                     <button onClick={()=> removeFromWishlist(product.id)}>Remove from wishlist</button>
                 </div>
             </div>

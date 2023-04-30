@@ -6,7 +6,7 @@ import { useCartContext } from '../../context/cart_context'
 
 const ProductGrid = ({ product }) => {
     const {id, title, price, category, thumbnail, rating, stock}= product;
-    const { wishlist, addToWishlist, removeFromWishlist }= useCartContext();
+    const { wishlist, addToWishlist, removeFromWishlist, addToCart }= useCartContext();
     return (
         <div className='product-grid'>
             <div className="product-grid-img">
@@ -14,11 +14,11 @@ const ProductGrid = ({ product }) => {
                 <div className="product-grid-btns">
                     {
                         stock > 0 ?
-                            <button>Add to cart</button> :
+                            <button onClick={()=> addToCart(id, product, 1)}>Add to cart</button> :
                             <button>Out of stock</button>
                     }
                     {
-                        wishlist.some((item)=> item.id===id)?
+                        wishlist?.some((item)=> item.id===id)?
                         <button onClick={()=> removeFromWishlist(id)}><AiFillHeart /></button>:
                         <button onClick={()=> addToWishlist(product)}><AiOutlineHeart /></button>
                     }

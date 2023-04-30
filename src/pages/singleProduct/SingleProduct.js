@@ -12,7 +12,7 @@ import { useCartContext } from '../../context/cart_context';
 const SingleProduct = () => {
     const { id }= useParams();
     const { single_product, single_product_loading, single_product_error, fetchSingleProduct }= useProductContext();
-    const { wishlist, addToWishlist, removeFromWishlist }= useCartContext();
+    const { wishlist, addToWishlist, removeFromWishlist, addToCart }= useCartContext();
     const [amount, setAmount]= useState(1);
     const [mainImgIndex, setMainImgIndex]= useState(0);
    
@@ -54,7 +54,7 @@ const SingleProduct = () => {
                             <div className="single-product-info-btns">
                                 {
                                     single_product.stock>0?
-                                    <button>Add to cart</button>:
+                                    <button onClick={()=> addToCart(single_product.id, single_product, amount)}>Add to cart</button>:
                                     <button>out of stock</button>
                                 }
                                 
