@@ -10,7 +10,7 @@ const Wishlist = () => {
     return (
       <div className='container'>
         <PageHero pageTitle='Wishlist'/>
-        <h1 className='no-items-yet'>Your Items will appear here...</h1>
+        <h1 className='no-items-yet'>Your wishlist items will appear here...</h1>
       </div>
     )
   }

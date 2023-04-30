@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { ADD_TO_CART, ADD_TO_WISHLIST, COUNT_CART_TOTALS, REMOVE_FROM_CART, REMOVE_FROM_WISHLIST, TOGGLE_AMOUNT } from "../actions";
+import { ADD_TO_CART, ADD_TO_WISHLIST, CLEAR_CART, COUNT_CART_TOTALS, REMOVE_FROM_CART, REMOVE_FROM_WISHLIST, TOGGLE_AMOUNT } from "../actions";
 import { cart_reducer } from "../reducer/cart_reducer";
 
 const CartContext= createContext();
@@ -8,7 +8,8 @@ const initialState= {
     cart: [],
     wishlist: [],
     total_cart_items: 0,
-    total_price: 0
+    total_price: 0,
+    shipping_fee: 50
 };
 
 const CartProvider= ({ children })=>{
@@ -29,13 +30,16 @@ const CartProvider= ({ children })=>{
     const toggleAmount= (itemId, toggleType, itemAmount)=>{
         dispatch({ type: TOGGLE_AMOUNT, payload: {itemId, toggleType, itemAmount} });
     };
+    const clearCart= ()=>{
+        dispatch({ type: CLEAR_CART });
+    };
 
     useEffect(()=>{
         dispatch({ type: COUNT_CART_TOTALS });
     }, [state.cart]);
 
     return (
-        <CartContext.Provider value={{ ...state, addToWishlist, removeFromWishlist, addToCart, removeFromCart, toggleAmount }}>
+        <CartContext.Provider value={{ ...state, addToWishlist, removeFromWishlist, addToCart, removeFromCart, toggleAmount, clearCart }}>
             { children }
         </CartContext.Provider>
     )

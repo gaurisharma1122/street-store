@@ -1,4 +1,4 @@
-import { ADD_TO_CART, ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST, REMOVE_FROM_CART, TOGGLE_AMOUNT, COUNT_CART_TOTALS} from "../actions";
+import { ADD_TO_CART, ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST, REMOVE_FROM_CART, TOGGLE_AMOUNT, COUNT_CART_TOTALS, CLEAR_CART} from "../actions";
 
 export const cart_reducer= (state, action)=>{
     switch(action.type){
@@ -58,13 +58,17 @@ export const cart_reducer= (state, action)=>{
                 const { total_cart_items, total_price }= state.cart.reduce((total, cartItem)=>{
                     const { amount, product }= cartItem;
                     total.total_cart_items += amount;
-                    total.total_price += product.price;
+                    total.total_price += product.price * amount;
                     return total;
                 }, {
                     total_cart_items: 0,
                     total_price: 0
                 });
                 return { ...state, total_cart_items, total_price };
+            }; break;
+        case CLEAR_CART:
+            {
+                return { ...state, cart: [] };
             }; break;
     }
 }

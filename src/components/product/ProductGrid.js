@@ -6,7 +6,17 @@ import { useCartContext } from '../../context/cart_context'
 
 const ProductGrid = ({ product }) => {
     const {id, title, price, category, thumbnail, rating, stock}= product;
-    const { wishlist, addToWishlist, removeFromWishlist, addToCart }= useCartContext();
+    const { cart, wishlist, addToWishlist, removeFromWishlist, addToCart, removeFromCart }= useCartContext();
+
+    const handleClick=()=>{
+        if(cart.some((item)=> item.id===id)){
+            removeFromCart(id);
+        }
+        else{
+            addToCart(id, product, 1);
+        }
+    };
+
     return (
         <div className='product-grid'>
             <div className="product-grid-img">
@@ -14,8 +24,12 @@ const ProductGrid = ({ product }) => {
                 <div className="product-grid-btns">
                     {
                         stock > 0 ?
-                            <button onClick={()=> addToCart(id, product, 1)}>Add to cart</button> :
-                            <button>Out of stock</button>
+                        <button onClick={handleClick}>
+                            {
+                                cart.some((item)=> item.id===id)? 'Remove from Cart': 'Add To cart'
+                            }
+                        </button>:
+                        <button >Out of stock</button>
                     }
                     {
                         wishlist?.some((item)=> item.id===id)?

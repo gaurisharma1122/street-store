@@ -42,11 +42,13 @@ a{
   text-align: center;
   margin-top: 2rem;
   margin-bottom: 3rem;
+  color: var(--text-color-main);
 }
 .no-items-yet{
   text-align: center;
   font-size: 1.6rem;
   margin: 4rem 0;
+  color: var(--text-color-main);
 }
 @media screen and (max-width:850px) {
   .container{

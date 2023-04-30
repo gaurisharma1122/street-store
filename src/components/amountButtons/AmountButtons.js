@@ -11,7 +11,9 @@ const AmountButtons = ({ amount, setAmount, stock, setToggleType}) => {
         else {
             setAmount(amount + 1);
         }
-        setToggleType('inc')
+        if(setToggleType){
+            setToggleType('inc');
+        }
     };
 
     const handleDecrease = () => {
@@ -21,7 +23,9 @@ const AmountButtons = ({ amount, setAmount, stock, setToggleType}) => {
         else {
             setAmount(amount - 1);
         } 
-        setToggleType('dec') 
+        if(setToggleType){
+            setToggleType('dec'); 
+        }
     };
 
     return (
