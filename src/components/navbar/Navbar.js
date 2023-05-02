@@ -8,7 +8,7 @@ import { navLinks } from '../../data';
 import { useProductContext } from '../../context/product_context';
 
 const Navbar = () => {
-    const { openNavSidebar }= useProductContext();
+    const { openNavSidebar, openSearchBar }= useProductContext();
     return (
         <nav>
             <div className="nav-center">
@@ -16,7 +16,7 @@ const Navbar = () => {
                     <Link to="/">Street Store</Link>
                 </h1>
                 <div className="nav-toggle">
-                    <AiOutlineSearch className='search-btn'/>
+                    <AiOutlineSearch className='search-btn' onClick={openSearchBar}/>
                     <FaBars className='toggle-btn' onClick={openNavSidebar}/>
                 </div>
                 <div className="nav-links">
@@ -27,7 +27,7 @@ const Navbar = () => {
                     }
                 </div>
                 <div className='nav-btns'>
-                    <AiOutlineSearch className='search-btn'/>
+                    <AiOutlineSearch className='search-btn' onClick={openSearchBar} />
                     <CartButtons/>
                 </div>
             </div>

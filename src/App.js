@@ -8,12 +8,14 @@ import Wishlist from "./pages/wishlist/Wishlist";
 import Cart from "./pages/cart/Cart";
 import NavSidebar from "./components/navbar/NavSidebar";
 import SingleProduct from "./pages/singleProduct/SingleProduct";
+import SearchBar from "./components/searchBar/SearchBar";
 
 function App() {
   return (
     <div>
       <Navbar />
       <NavSidebar/>
+      <SearchBar/>
       <div className="page">
         <Routes>
           <Route exact path="/" element={<Home />} />
