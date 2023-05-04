@@ -75,6 +75,7 @@ const ProductProvider= ({ children })=>{
         .then(response=> response.json())
         .then(data=>{
             dispatch({ type: GET_SEARCH_RESULT_SUCCESS, payload: data.products });
+            console.log("Search: ",data.products);
         })
         .catch(e=>{
             dispatch({ type: GET_SEARCH_RESULT_ERROR });

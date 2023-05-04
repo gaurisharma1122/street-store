@@ -3,11 +3,12 @@ import "./SearchBar.css"
 import { FaTimes } from 'react-icons/fa'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { useProductContext } from '../../context/product_context'
+import SearchResultItem from './SearchResultItem'
 
 
 
 const SearchBar = () => {
-  const { showSearchBar, closeSearchBar, fetchSearchResults }= useProductContext();
+  const { search_result, search_result_loading, search_result_error, showSearchBar, closeSearchBar, fetchSearchResults }= useProductContext();
   const [searchQuery, setSearchQuery]= useState('');
 
   const handleClick=()=>{
@@ -27,7 +28,15 @@ const SearchBar = () => {
           <input type="text" placeholder='Search...' value={searchQuery} onChange={(e)=> setSearchQuery(e.target.value)}/>
           <button type='submit' onClick={handleClick}><AiOutlineSearch/></button>
         </form>
-        <h2>{searchQuery}</h2>
+        <div className="search-results">
+          {
+            search_result.length>0?
+            search_result.map((item)=>{
+              return <SearchResultItem key={item.id} product={item}/>
+            }):
+            <h3></h3>
+          }
+        </div>
       </div>
     </div>
   )
