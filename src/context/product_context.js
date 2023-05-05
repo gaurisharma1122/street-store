@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { product_reducer } from "../reducer/product_reducer";
-import { CLOSE_NAV_SIDEBAR, CLOSE_SEARCH_BAR, GET_CATEGORIES_BEGIN, GET_CATEGORIES_ERROR, GET_CATEGORIES_SUCCESS, GET_PRODUCTS_BEGIN, GET_PRODUCTS_ERROR, GET_PRODUCTS_SUCCESS, GET_SEARCH_RESULT_BEGIN, GET_SINGLE_PRODUCT_BEGIN, GET_SINGLE_PRODUCT_ERROR, GET_SINGLE_PRODUCT_SUCCESS, OPEN_NAV_SIDEBAR, OPEN_SEARCH_BAR, GET_SEARCH_RESULT_SUCCESS, GET_SEARCH_RESULT_ERROR } from "../actions";
+import { CLOSE_NAV_SIDEBAR, CLOSE_SEARCH_BAR, GET_CATEGORIES_BEGIN, GET_CATEGORIES_ERROR, GET_CATEGORIES_SUCCESS, GET_PRODUCTS_BEGIN, GET_PRODUCTS_ERROR, GET_PRODUCTS_SUCCESS, GET_SEARCH_RESULT_BEGIN, GET_SINGLE_PRODUCT_BEGIN, GET_SINGLE_PRODUCT_ERROR, GET_SINGLE_PRODUCT_SUCCESS, OPEN_NAV_SIDEBAR, OPEN_SEARCH_BAR, GET_SEARCH_RESULT_SUCCESS, GET_SEARCH_RESULT_ERROR, RESET_SEARCH_RESULTS } from "../actions";
 
 const ProductContext= createContext();
 
@@ -31,6 +31,7 @@ const ProductProvider= ({ children })=>{
         dispatch({ type: CLOSE_NAV_SIDEBAR });
     };
     const openSearchBar= ()=>{
+        dispatch({ type: RESET_SEARCH_RESULTS });
         dispatch({ type: OPEN_SEARCH_BAR });
     };
     const closeSearchBar= ()=>{
@@ -75,7 +76,7 @@ const ProductProvider= ({ children })=>{
         .then(response=> response.json())
         .then(data=>{
             dispatch({ type: GET_SEARCH_RESULT_SUCCESS, payload: data.products });
-            console.log("Search: ",data.products);
+            
         })
         .catch(e=>{
             dispatch({ type: GET_SEARCH_RESULT_ERROR });
