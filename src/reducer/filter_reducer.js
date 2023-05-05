@@ -1,4 +1,4 @@
-import { LOAD_PRODUCTS, SHOW_GRID_VIEW, SHOW_LIST_VIEW, SORT_PRODUCTS, UPDATE_SORT } from "../actions";
+import { FILTER_PRODUCTS, LOAD_PRODUCTS, SHOW_GRID_VIEW, SHOW_LIST_VIEW, SORT_PRODUCTS, UPDATE_FILTER, UPDATE_SORT } from "../actions";
 
 export const filter_reducer = (state, action) => {
     switch (action.type) {
@@ -35,6 +35,15 @@ export const filter_reducer = (state, action) => {
                     tempProducts= tempProducts.sort((a,b)=> b.title.localeCompare(a.title));
                 }
                 return { ...state, filtered_products: tempProducts };
+            }; break;
+        case UPDATE_FILTER:
+            {
+                const { category }= action.payload;
+                return { ...state, filter: {...state.filter, category }};
+            }; break;
+        case FILTER_PRODUCTS:
+            {
+                return { ...state, filtered_products: action.payload };
             }; break;
     }
 };

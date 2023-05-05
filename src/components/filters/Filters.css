@@ -1,10 +1,40 @@
 .filters{
-    height: 100px;
+    height: 75vh;
     position: sticky;
     top: 6rem;
 }
+.filters h3{
+    margin-bottom: 15px;
+}
+.filters ul li{
+    text-transform: capitalize;
+    font-size: 1rem;
+    margin-bottom: 3px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.filters ul li:hover{
+    color: var(--link-color-hover);
+}
 @media screen and (max-width: 850px) {
     .filters{
+        height: 28vh;
         position: static;
+    }
+    .filters ul{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .filters ul li{
+        margin-right: 20px;
+    }
+}
+@media screen and (max-width: 600px){
+    .filters{
+        height: auto;
+    }
+    .filters ul li{
+        font-size: 0.8rem;
+        margin-right: 15px;
     }
 }
