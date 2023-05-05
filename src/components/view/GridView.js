@@ -1,14 +1,14 @@
 import React from 'react'
 import "./View.css"
-import { useProductContext } from '../../context/product_context'
 import ProductGrid from '../product/ProductGrid';
+import { useFilterContext } from '../../context/filter_context';
 
 const GridView = () => {
-    const { products } = useProductContext();
+    const { filtered_products } = useFilterContext();
     return (
         <div className='grid-view'>
             {
-                products.map((product)=>{
+                filtered_products.map((product)=>{
                     return <ProductGrid key={product.id} product={product} />
                 })
             }

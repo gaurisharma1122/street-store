@@ -9,10 +9,12 @@ import Cart from "./pages/cart/Cart";
 import NavSidebar from "./components/navbar/NavSidebar";
 import SingleProduct from "./pages/singleProduct/SingleProduct";
 import SearchBar from "./components/searchBar/SearchBar";
+import { useProductContext } from "./context/product_context";
 
 function App() {
+  const { showSearchBar }= useProductContext();
   return (
-    <div>
+    <div className="app" style={ showSearchBar ? { height: '100vh', overflow: 'hidden'} : undefined }>
       <Navbar />
       <NavSidebar/>
       <SearchBar/>

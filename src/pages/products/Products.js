@@ -8,9 +8,11 @@ import Sort from '../../components/sort/Sort';
 import './Products.css'
 import GridView from '../../components/view/GridView';
 import ListView from '../../components/view/ListView';
+import { useFilterContext } from '../../context/filter_context';
 
 const Products = () => {
   const { products_loading, products_error, products } = useProductContext();
+  const { gridView }= useFilterContext()
 
   if (products_loading) {
     return <Loading />
@@ -27,7 +29,9 @@ const Products = () => {
           <div>
             <Sort />
             <div className="products-container">
-              <GridView/>
+              {
+                gridView? <GridView/> : <ListView/>
+              }
             </div>
           </div>
         </div>
