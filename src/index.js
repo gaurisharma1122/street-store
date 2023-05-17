@@ -7,19 +7,31 @@ import { BrowserRouter } from 'react-router-dom';
 import ProductProvider from './context/product_context';
 import CartProvider from './context/cart_context';
 import FilterProvider from './context/filter_context';
+import { Auth0Provider } from '@auth0/auth0-react';
+import UserProvider from './context/user_context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ProductProvider>
-      <CartProvider>
-        <FilterProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-        </FilterProvider>
-      </CartProvider>
-    </ProductProvider>
+    <Auth0Provider
+      domain="dev-r3paa8tbyl44jjlq.us.auth0.com"
+      clientId="ktd0LR9EgisdRUDM9ix6DrNe4q221GQs"
+      authorizationParams={{
+        redirect_uri: window.location.origin
+      }}
+    >
+      <UserProvider>
+        <ProductProvider>
+          <CartProvider>
+            <FilterProvider>
+              <BrowserRouter>
+                <App />
+              </BrowserRouter>
+            </FilterProvider>
+          </CartProvider>
+        </ProductProvider>
+      </UserProvider>
+    </Auth0Provider>
   </React.StrictMode>
 );
 

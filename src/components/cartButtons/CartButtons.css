@@ -1,5 +1,7 @@
 .cart-btns{
     font-size: 1.4rem;
+    display: flex;
+    align-items: center;
 }
 .cart-btns a{
     margin-left: 15px;
@@ -26,6 +28,24 @@
     align-items: center;
     justify-content: center;
 
+}
+.cart-login-logout-btn{
+    margin-left: 20px;
+    padding: 7px 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+    border: none;
+}
+.cart-login-logout-btn:hover{
+    background-color: var(--link-color-hover);
+}
+.user-name{
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 5px;
 }
 @media screen and (max-width:850px) {
     .cart-btns{

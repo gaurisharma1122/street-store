@@ -4,15 +4,24 @@ import PageHero from '../../components/pageHero/PageHero'
 import { useCartContext } from '../../context/cart_context'
 import CartItem from '../../components/cartItem/CartItem';
 import { Link } from 'react-router-dom';
+import { useUserContext } from '../../context/user_context';
 
 const Cart = () => {
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
+  const { myUser, loginWithRedirect }= useUserContext();
 
+  console.log(myUser)
   if (cart.length < 1) {
     return (
       <div className='container'>
         <PageHero pageTitle='Cart' />
-        <h1 className='no-items-yet'>Your cart items will appear here...</h1>
+        <div className="cart" style={{ minHeight: '40vh' }}>
+          {
+            myUser? 
+            <h1 className="no-items-yet">Hi, {myUser.name}<br/> Your cart items will appear here...</h1>: 
+            <h1 className='no-items-yet'>Your cart items will appear here...</h1>
+          }
+        </div>
       </div>
     )
   }
@@ -40,7 +49,12 @@ const Cart = () => {
               <p>$ {shipping_fee}</p>
               <h2>Order Total :</h2>
               <h2>$ {total_price + shipping_fee}</h2>
-              <button className='checkout'>Checkout</button>
+              {
+                myUser ?
+                <button className='checkout'>Checkout</button>:
+                <button className='checkout' onClick={loginWithRedirect}>Login to Checkout</button>
+              }
+              
             </div>
           </div>
         </div>
