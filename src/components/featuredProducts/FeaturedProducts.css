@@ -1,0 +1,26 @@
+.featured-products{
+    padding: 4rem 2rem;
+}
+.featured-products h1{
+    font-size: 2rem;
+    text-align: center;
+}
+.featured-products-container{
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}
+@media screen and (max-width:850px) {
+    .featured-products-container{
+        grid-template-columns: 1fr 1fr;
+    } 
+}
+@media screen and (max-width:600px) {
+    .featured-products-container{
+        grid-template-columns: 1fr ;
+    }
+    .featured-products h1{
+        font-size: 1.6rem;
+    } 
+}

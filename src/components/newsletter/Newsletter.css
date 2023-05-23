@@ -1,0 +1,65 @@
+.newsletter{
+    background-color: var(--link-color-hover);
+    padding: 2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.newsletter div{
+    text-align: center;
+}
+.newsletter h1{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.newsletter p{
+    margin-top: 20px;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.newsletter form{
+    margin-top: 40px;
+}
+.newsletter form input{
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 1px solid #fff;
+    background-color: transparent;
+}
+.newsletter form input::placeholder{
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+}
+.newsletter form button{
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    border: 1px solid #fff;
+    background-color: #fff;
+    color: var(--link-color-hover);
+}
+.newsletter form button:hover{
+    background-color: var(--link-color-hover);
+    color: #fff;
+}
+@media screen and (max-width:600px) {
+    .newsletter{
+        padding: 2rem 1rem;
+    }
+    .newsletter h1{
+        font-size: 1.6rem;
+    }
+    .newsletter p{
+        font-size: 1.2rem;
+    }
+    
+}
+@media screen and (max-width: 350px) {
+    .newsletter form{
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -3,6 +3,9 @@ import homeImg2 from "./assets/home-image-2.avif"
 import homeImg3 from "./assets/home-image-3.jpg"
 import homeImg4 from "./assets/home-image-4.jpg"
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube, FaLinkedinIn } from 'react-icons/fa'
+import {AiOutlineDropbox} from 'react-icons/ai'
+import {FiMapPin} from 'react-icons/fi'
+import {CiDiscount1} from 'react-icons/ci'
 
 
 export const navLinks=[
@@ -24,5 +27,10 @@ export const socialLinks= [
     { id: 3, url: 'https://www.twitter.com/', icon: <FaTwitter/> },
     { id: 4, url: 'https://www.youtube.com/', icon: <FaYoutube/> },
     { id: 5, url: 'https://www.linkedin.com/', icon: <FaLinkedinIn/> },
-
 ];
+
+export const features= [
+    { id: 1, title: 'Express Delivery', icon: <AiOutlineDropbox/>, description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ' },
+    { id: 2, title: 'Order Tracking', icon: <FiMapPin/>, description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ' },
+    { id: 3, title: 'Regular Discounts', icon: <CiDiscount1/>, description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod '}
+]

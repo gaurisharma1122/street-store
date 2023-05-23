@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PageHero from '../../components/pageHero/PageHero'
 import './Thanks.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useUserContext } from '../../context/user_context'
 
 const Thanks = () => {
     return (

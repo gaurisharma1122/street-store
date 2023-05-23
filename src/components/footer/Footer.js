@@ -12,8 +12,7 @@ const Footer = () => {
             <div className='footer-main'>
                 <h2>Street Store</h2>
                 <p>
-                    <span><HiOutlineLocationMarker /></span> 184 Main Rd E, St Albans
-                    VIC 3021, Australia
+                    <span><HiOutlineLocationMarker /></span> 184 Main Rd E, XYZ Road, Australia
                 </p>
                 <p>
                     <span><AiOutlineMail /></span> contact@company.com

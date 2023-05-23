@@ -11,6 +11,8 @@ import SearchBar from "./components/searchBar/SearchBar";
 import { useProductContext } from "./context/product_context";
 import Footer from "./components/footer/Footer";
 import Thanks from "./pages/thanks/Thanks";
+import NotFound from "./pages/notFound/NotFound";
+import Newsletter from "./components/newsletter/Newsletter";
 
 function App() {
   const { showSearchBar }= useProductContext();
@@ -28,8 +30,10 @@ function App() {
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/products/:id" element={<SingleProduct/>}/>
           <Route exact path="/thanks" element={<Thanks/>}/>
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
       </div>
+      <Newsletter/>
       <Footer/>
     </div>
   );

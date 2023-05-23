@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 
 const PageHero = ({ pageTitle, product }) => {
-  if (pageTitle === 'thanks') {
+  if (pageTitle === 'thanks' || pageTitle === 'notfound') {
     return (
       <div className="page-hero">
         <h1>
