@@ -1,25 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Cart.css"
 import PageHero from '../../components/pageHero/PageHero'
 import { useCartContext } from '../../context/cart_context'
 import CartItem from '../../components/cartItem/CartItem';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../context/user_context';
+import StripeCheckout from 'react-stripe-checkout';
 
 const Cart = () => {
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
-  const { myUser, loginWithRedirect }= useUserContext();
+  const { myUser, loginWithRedirect } = useUserContext();
+  const navigate = useNavigate()
 
-  console.log(myUser)
+  const onToken = (token) => {
+    console.log('Token: ', token);
+    clearCart();
+    navigate('/thanks')
+  }
+
   if (cart.length < 1) {
     return (
       <div className='container'>
         <PageHero pageTitle='Cart' />
         <div className="cart" style={{ minHeight: '40vh' }}>
           {
-            myUser? 
-            <h1 className="no-items-yet">Hi, {myUser.name}<br/> Your cart items will appear here...</h1>: 
-            <h1 className='no-items-yet'>Your cart items will appear here...</h1>
+            myUser ?
+              <h1 className="no-items-yet">Hi, {myUser.name}<br /> Your cart items will appear here...</h1> :
+              <h1 className='no-items-yet'>Your cart items will appear here...</h1>
           }
         </div>
       </div>
@@ -51,10 +58,13 @@ const Cart = () => {
               <h2>$ {total_price + shipping_fee}</h2>
               {
                 myUser ?
-                <button className='checkout'>Checkout</button>:
-                <button className='checkout' onClick={loginWithRedirect}>Login to Checkout</button>
+                  <StripeCheckout
+                    token={onToken}
+                    stripeKey='pk_test_51N8fymSFzIoOL2VdUe3BlcchM7W0hesl4xoZ3C4IpiRmfeBG5YCTSdo0u8quEbBWPEqhgFlEONsWYq5pibJrofe100vA0Vt2Ue'
+                    style={{ marginTop: '20px'}} /> :
+                  <button className='checkout' onClick={loginWithRedirect}>Login to Checkout</button>
               }
-              
+
             </div>
           </div>
         </div>

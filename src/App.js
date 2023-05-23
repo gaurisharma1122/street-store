@@ -10,6 +10,7 @@ import SingleProduct from "./pages/singleProduct/SingleProduct";
 import SearchBar from "./components/searchBar/SearchBar";
 import { useProductContext } from "./context/product_context";
 import Footer from "./components/footer/Footer";
+import Thanks from "./pages/thanks/Thanks";
 
 function App() {
   const { showSearchBar }= useProductContext();
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/wishlist" element={<Wishlist />} />
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/products/:id" element={<SingleProduct/>}/>
+          <Route exact path="/thanks" element={<Thanks/>}/>
         </Routes>
       </div>
       <Footer/>
